@@ -6,13 +6,18 @@ import re
 
 def preProcessing(text):
     nltk.download('stopwords')
+    nltk.download('rslp')
+    nltk.download('punkt')
+    st = nltk.stem.RSLPStemmer()
     stopwords = nltk.corpus.stopwords.words('portuguese')
     text = text.lower()
     text = text.translate(str.maketrans("", "", punctuation))
     text = unidecode(text)
-    text = text.replace("\n", " ")
-    text = text.split(" ")
+    #text = text.replace("\n", " ")
+    #text = text.split(" ")
+    text = nltk.word_tokenize(text)
     text = list(filter(lambda s : s not in stopwords, text))
+    text = [st.stem(w) for w in text]
     vocabulary = set(text)
     print(text, len(text))
     print(len(vocabulary))
