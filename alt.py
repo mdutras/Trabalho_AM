@@ -10,11 +10,9 @@ def customPreprocessing(doc):
     st = nltk.stem.PorterStemmer()
     doc = doc.lower()
     doc = re.sub(r"[,.;@#?!&$'\"0-9]+", " ", doc)
-    #doc = remove_stopwords(doc)
     doc = nltk.word_tokenize(doc)
     doc = list(filter(lambda s : s not in stopWords, doc))
-    doc = [st.stem(w) for w in doc]
-    #return " ".join(doc)
+    doc = [st.stem(w) for w in doc
     return doc
 
 def caracVector(docs):
