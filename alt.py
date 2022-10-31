@@ -4,6 +4,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 import nltk
 import re
 import gensim
+from sklearn.model_selection import train_test_split
 
 def customPreprocessing(doc):
     stopWords = list(set(nltk.corpus.stopwords.words('english')) | set(gensim.parsing.preprocessing.STOPWORDS))
@@ -12,10 +13,10 @@ def customPreprocessing(doc):
     doc = re.sub(r"[,.;@#?!&$'\"0-9]+", " ", doc)
     doc = nltk.word_tokenize(doc)
     doc = list(filter(lambda s : s not in stopWords, doc))
-    doc = [st.stem(w) for w in doc
+    doc = [st.stem(w) for w in doc]
     return doc
 
-def caracVector(docs):
+def featureVector(docs):
     countVec = CountVectorizer(min_df=1, tokenizer=customPreprocessing)
     TF = countVec.fit_transform(docs)
     tfidfTransf = TfidfTransformer(smooth_idf=True,use_idf=True)
@@ -24,7 +25,12 @@ def caracVector(docs):
     TFIDF = tfidfTransf.transform(IDF)
     print(countVec.get_feature_names_out())
     print(pd.DataFrame(TFIDF.todense().tolist(), columns=countVec.get_feature_names_out()))
+    print(TFIDF.todense().tolist())
     return TFIDF.todense().tolist()
+
+def SVMclass(featVector, classes, algorithm):
+    xTrain, xTest, yTrain, yTest = train_test_split(featVector, classes, test_size=0.3,random_state=109)
+    classifier = svm.SVC(kernel='linear')
 
 def main():
     docs = ["I wish I loved the Human Race;",
