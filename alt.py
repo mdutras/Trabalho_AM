@@ -4,8 +4,9 @@ import gensim
 import sklearn
 import pandas as pd
 import numpy as np
+from random import randint
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
-from sklearn.model_selection import train_test_split, StratifiedKFold
+from sklearn.model_selection import train_test_split, StratifiedKFold, KFold
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 from sklearn.naive_bayes import MultinomialNB
 
@@ -21,7 +22,7 @@ def customTokenizer(doc):
 def featureVector(docs):
     # Term Frequency
     print("Pré-processamento")
-    countVec = CountVectorizer(min_df=5, tokenizer=customTokenizer)
+    countVec = CountVectorizer(min_df=10, tokenizer=customTokenizer)
     TF = countVec.fit_transform(docs)
     # Inverse Document Frequency
     tfidfTransf = TfidfTransformer(smooth_idf=True,use_idf=True)
@@ -35,7 +36,7 @@ def featureVector(docs):
 def classifier(features, classes, classif, extra={}):
     print("Classificador")
     #docsTrain, docsTest, classesTrain, classesTest = train_test_split(features, classes, train_size=0.7, test_size=0.3,random_state=109)
-    kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=13)
+    kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=extra["randNum"])
     measure = {
         "precision": 0,
         "accuracy": 0,
@@ -45,6 +46,8 @@ def classifier(features, classes, classif, extra={}):
     for train, test in kf.split(features, classes):
         model = classif.fit(features[train], classes[train])
         prediction = np.array(model.predict(features[test]))
+        if set(classes[test]) - set(prediction):
+            print(set(classes[test]) - set(prediction))
         measure["accuracy"] += accuracy_score(classes[test], prediction)
         measure["precision"] += precision_score(classes[test], prediction, average='weighted')
         measure["recall"] += recall_score(classes[test], prediction, average='weighted')
@@ -52,7 +55,11 @@ def classifier(features, classes, classif, extra={}):
         #print(f"--- {extra["classificador"]}\nAccuracy = {accuracy}\nPrecision = {precision}\nRecall = {recall}\nF1 = {f1}")
     for key in measure:
         measure[key] /= kf.get_n_splits()
-    print(measure)
+    text = f"--- {extra['classifierName']} {extra['randNum']} ---\n- Accuracy = {measure['accuracy']}\n- Precision = {measure['precision']}\n- Recall = {measure['recall']}\n- F1 = {measure['f1']}\n\n"
+    f = open("resultados.txt", "a")
+    f.write(text)
+    f.close()
+    #print(measure)
 
 
 def main():
@@ -67,7 +74,9 @@ def main():
     classes = np.array(data['genre'])
     docs = np.array(data['synopsis'])
     features = np.array(featureVector(docs))
-    classifier(features, classes, sklearn.svm.SVC(kernel='linear'))
+    for i in range(5):
+        rs = randint(0, 42)
+        classifier(features, classes, sklearn.svm.SVC(kernel='linear'), {"randNum":rs, "classifierName":"SVM"})
 
 if __name__ == "__main__":
     main()
