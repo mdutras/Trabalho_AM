@@ -1,28 +1,32 @@
 import nltk
-import re
 import gensim
 import sklearn
+import re
 import pandas as pd
 import numpy as np
 from random import randint
+from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
 from sklearn.model_selection import train_test_split, StratifiedKFold, KFold
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.svm import SVC
+from sklearn.naive_bayes import MultinomialNB, GaussianNB, ComplementNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 def customTokenizer(doc):
     stopWords = list(set(nltk.corpus.stopwords.words('english')) | set(gensim.parsing.preprocessing.STOPWORDS))
-    st = nltk.stem.PorterStemmer()
+    st = PorterStemmer()
     doc = re.sub(r"[,.;@#?!&$'\"0-9]+", " ", doc.lower())
     doc = nltk.word_tokenize(doc)
     doc = list(filter(lambda s : s not in stopWords, doc))
     doc = [st.stem(w) for w in doc]
     return doc
 
-def featureVector(docs):
+def featureVector(docs, minDf=10):
     # Term Frequency
     print("Pré-processamento")
-    countVec = CountVectorizer(min_df=10, tokenizer=customTokenizer)
+    countVec = CountVectorizer(min_df=minDf, tokenizer=customTokenizer)
     TF = countVec.fit_transform(docs)
     # Inverse Document Frequency
     tfidfTransf = TfidfTransformer(smooth_idf=True,use_idf=True)
@@ -41,23 +45,23 @@ def classifier(features, classes, classif, extra={}):
         "precision": 0,
         "accuracy": 0,
         "recall": 0,
-        "f1": 0
+        "micro f1": 0,
+        "macro f1":0
     }
     for train, test in kf.split(features, classes):
         model = classif.fit(features[train], classes[train])
         prediction = np.array(model.predict(features[test]))
-        if set(classes[test]) - set(prediction):
-            print(set(classes[test]) - set(prediction))
         measure["accuracy"] += accuracy_score(classes[test], prediction)
-        measure["precision"] += precision_score(classes[test], prediction, average='weighted')
-        measure["recall"] += recall_score(classes[test], prediction, average='weighted')
-        measure["f1"] += f1_score(classes[test], prediction, average='weighted')
-        #print(f"--- {extra["classificador"]}\nAccuracy = {accuracy}\nPrecision = {precision}\nRecall = {recall}\nF1 = {f1}")
+        measure["precision"] += precision_score(classes[test], prediction, average='weighted', zero_division=1)
+        measure["recall"] += recall_score(classes[test], prediction, average='weighted', zero_division=1)
+        measure["micro f1"] += f1_score(classes[test], prediction, average='micro', zero_division=1)
+        measure["macro f1"] += f1_score(classes[test], prediction, average='macro', zero_division=1)
     for key in measure:
         measure[key] /= kf.get_n_splits()
-    text = f"--- {extra['classifierName']} {extra['randNum']} ---\n- Accuracy = {measure['accuracy']}\n- Precision = {measure['precision']}\n- Recall = {measure['recall']}\n- F1 = {measure['f1']}\n\n"
-    f = open("resultados.txt", "a")
-    f.write(text)
+    f = open("results.csv", "a")
+    for key, value in measure.items():
+        text = f"{extra['classifierName']}, {kf.get_n_splits()}, {extra['min_df']}, {extra['randNum']}, {key}, {value}, {len(set(classes[test]) - set(prediction))}\n"
+        f.write(text)
     f.close()
     #print(measure)
 
@@ -70,13 +74,22 @@ def main():
     # "And when I\'m introduced to one,",
     # "I wish I thought \"What Jolly Fun!\""]
     # classes = [0,1,2,1,0]
+    minDf = 10
     data = pd.read_csv('data.csv')
     classes = np.array(data['genre'])
     docs = np.array(data['synopsis'])
-    features = np.array(featureVector(docs))
-    for i in range(5):
-        rs = randint(0, 42)
-        classifier(features, classes, sklearn.svm.SVC(kernel='linear'), {"randNum":rs, "classifierName":"SVM"})
+    features = np.array(featureVector(docs, minDf))
+    rs = randint(0, 42)
+    classifier(features, classes, SVC(kernel='linear'), {"randNum":rs, "classifierName":"SVM (kernel='linear')", "min_df":minDf})
+    classifier(features, classes, SVC(kernel='sigmoid'), {"randNum":rs, "classifierName":"SVM (kernel='sigmoid')", "min_df":minDf})
+    classifier(features, classes, SVC(kernel='poly'), {"randNum":rs, "classifierName":"SVM (kernel='poly')", "min_df":minDf})
+    classifier(features, classes, SVC(kernel='rbf'), {"randNum":rs, "classifierName":"SVM (kernel='rbf')", "min_df":minDf})
+    classifier(features, classes, GaussianNB(), {"randNum":rs, "classifierName":"Gaussian NB", "min_df":minDf})
+    classifier(features, classes, MultinomialNB(), {"randNum":rs, "classifierName":"Multinomial NB", "min_df":minDf})
+    classifier(features, classes, ComplementNB(), {"randNum":rs, "classifierName":"Complement NB", "min_df":minDf})
+    classifier(features, classes, KNeighborsClassifier(), {"randNum":rs, "classifierName":"KNN", "min_df":minDf})
+    classifier(features, classes, RandomForestClassifier(), {"randNum":rs, "classifierName":"Random Forest", "min_df":minDf})
+
 
 if __name__ == "__main__":
     main()

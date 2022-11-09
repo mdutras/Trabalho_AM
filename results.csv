@@ -1,0 +1,46 @@
+Classificador, k, min_df, random_number, Medida, Valor, Classes vazias
+SVM (kernel='linear'), 5, 10, 8, precision, 0.7638653086252595, 0
+SVM (kernel='linear'), 5, 10, 8, accuracy, 0.7544058547315876, 0
+SVM (kernel='linear'), 5, 10, 8, recall, 0.7544058547315876, 0
+SVM (kernel='linear'), 5, 10, 8, micro f1, 0.7544058547315876, 0
+SVM (kernel='linear'), 5, 10, 8, macro f1, 0.664316493293212, 0
+SVM (kernel='sigmoid'), 5, 10, 8, precision, 0.7676400392828263, 0
+SVM (kernel='sigmoid'), 5, 10, 8, accuracy, 0.7479038876433013, 0
+SVM (kernel='sigmoid'), 5, 10, 8, recall, 0.7479038876433013, 0
+SVM (kernel='sigmoid'), 5, 10, 8, micro f1, 0.7479038876433013, 0
+SVM (kernel='sigmoid'), 5, 10, 8, macro f1, 0.6503980846242097, 0
+SVM (kernel='poly'), 5, 10, 8, precision, 0.7759693665438648, 8
+SVM (kernel='poly'), 5, 10, 8, accuracy, 0.34762257286687254, 8
+SVM (kernel='poly'), 5, 10, 8, recall, 0.34762257286687254, 8
+SVM (kernel='poly'), 5, 10, 8, micro f1, 0.34762257286687254, 8
+SVM (kernel='poly'), 5, 10, 8, macro f1, 0.0758760642414856, 8
+SVM (kernel='rbf'), 5, 10, 8, precision, 0.742952323650931, 2
+SVM (kernel='rbf'), 5, 10, 8, accuracy, 0.6465375015863615, 2
+SVM (kernel='rbf'), 5, 10, 8, recall, 0.6465375015863615, 2
+SVM (kernel='rbf'), 5, 10, 8, micro f1, 0.6465375015863615, 2
+SVM (kernel='rbf'), 5, 10, 8, macro f1, 0.46327045025572133, 2
+Gaussian NB, 5, 10, 8, precision, 0.5260935737781254, 1
+Gaussian NB, 5, 10, 8, accuracy, 0.4756440627776133, 1
+Gaussian NB, 5, 10, 8, recall, 0.4756440627776133, 1
+Gaussian NB, 5, 10, 8, micro f1, 0.4756440627776133, 1
+Gaussian NB, 5, 10, 8, macro f1, 0.2601055876143502, 1
+Multinomial NB, 5, 10, 8, precision, 0.7513916722506189, 4
+Multinomial NB, 5, 10, 8, accuracy, 0.5867380176826431, 4
+Multinomial NB, 5, 10, 8, recall, 0.5867380176826431, 4
+Multinomial NB, 5, 10, 8, micro f1, 0.5867380176826431, 4
+Multinomial NB, 5, 10, 8, macro f1, 0.3501613635918966, 4
+Complement NB, 5, 10, 8, precision, 0.7382457442120443, 0
+Complement NB, 5, 10, 8, accuracy, 0.7517830703498456, 0
+Complement NB, 5, 10, 8, recall, 0.7517830703498456, 0
+Complement NB, 5, 10, 8, micro f1, 0.7517830703498456, 0
+Complement NB, 5, 10, 8, macro f1, 0.633787237411408, 0
+KNN, 5, 10, 8, precision, 0.644843326712283, 0
+KNN, 5, 10, 8, accuracy, 0.6354879648039258, 0
+KNN, 5, 10, 8, recall, 0.6354879648039258, 0
+KNN, 5, 10, 8, micro f1, 0.6354879648039258, 0
+KNN, 5, 10, 8, macro f1, 0.550957301928983, 0
+Random Forest, 5, 10, 8, precision, 0.7305494013877882, 1
+Random Forest, 5, 10, 8, accuracy, 0.6763885951182368, 1
+Random Forest, 5, 10, 8, recall, 0.6763885951182368, 1
+Random Forest, 5, 10, 8, micro f1, 0.6763885951182368, 1
+Random Forest, 5, 10, 8, macro f1, 0.5207510334021979, 1

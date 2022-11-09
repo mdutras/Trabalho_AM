@@ -1,5 +1,5 @@
-- [  ] Checar as métricas, principalmente o atributo 'average'
-- [  ] Entender cada tipo de métrica diferente (micro, macro, weighted, samples)
+- [ x ] Checar as métricas, principalmente o atributo 'average'
+- [ x ] Entender cada tipo de métrica diferente (micro, macro, weighted, samples)
 - [  ] Implementar mais de um classificador
 - [  ] Achar o valor ideal para K
 - [  ] Achar o valor ideal para min_df
