@@ -44,3 +44,183 @@ Random Forest, 5, 10, 8, accuracy, 0.6763885951182368, 1
 Random Forest, 5, 10, 8, recall, 0.6763885951182368, 1
 Random Forest, 5, 10, 8, micro f1, 0.6763885951182368, 1
 Random Forest, 5, 10, 8, macro f1, 0.5207510334021979, 1
+SVM (kernel='linear'), 5, 5, 22, precision, 0.7677180016160697, 0
+SVM (kernel='linear'), 5, 5, 22, accuracy, 0.7504716781589745, 0
+SVM (kernel='linear'), 5, 5, 22, recall, 0.7504716781589745, 0
+SVM (kernel='linear'), 5, 5, 22, micro f1, 0.7504716781589745, 0
+SVM (kernel='linear'), 5, 5, 22, macro f1, 0.6446829884992924, 0
+SVM (kernel='sigmoid'), 5, 5, 22, precision, 0.7658180245734167, 0
+SVM (kernel='sigmoid'), 5, 5, 22, accuracy, 0.7491708617115782, 0
+SVM (kernel='sigmoid'), 5, 5, 22, recall, 0.7491708617115782, 0
+SVM (kernel='sigmoid'), 5, 5, 22, micro f1, 0.7491708617115782, 0
+SVM (kernel='sigmoid'), 5, 5, 22, macro f1, 0.6353062266851969, 0
+SVM (kernel='poly'), 5, 5, 22, precision, 0.7630970218317558, 8
+SVM (kernel='poly'), 5, 5, 22, accuracy, 0.33593637632725576, 8
+SVM (kernel='poly'), 5, 5, 22, recall, 0.33593637632725576, 8
+SVM (kernel='poly'), 5, 5, 22, micro f1, 0.33593637632725576, 8
+SVM (kernel='poly'), 5, 5, 22, macro f1, 0.06746560712999253, 8
+SVM (kernel='rbf'), 5, 5, 22, precision, 0.7485661836962116, 3
+SVM (kernel='rbf'), 5, 5, 22, accuracy, 0.6120690384534033, 3
+SVM (kernel='rbf'), 5, 5, 22, recall, 0.6120690384534033, 3
+SVM (kernel='rbf'), 5, 5, 22, micro f1, 0.6120690384534033, 3
+SVM (kernel='rbf'), 5, 5, 22, macro f1, 0.40094793734143136, 3
+Gaussian NB, 5, 5, 22, precision, 0.6134993708034385, 3
+Gaussian NB, 5, 5, 22, accuracy, 0.5133169761834256, 3
+Gaussian NB, 5, 5, 22, recall, 0.5133169761834256, 3
+Gaussian NB, 5, 5, 22, micro f1, 0.5133169761834256, 3
+Gaussian NB, 5, 5, 22, macro f1, 0.30255379763515, 3
+Multinomial NB, 5, 5, 22, precision, 0.7441053429554502, 4
+Multinomial NB, 5, 5, 22, accuracy, 0.5354097043022124, 4
+Multinomial NB, 5, 5, 22, recall, 0.5354097043022124, 4
+Multinomial NB, 5, 5, 22, micro f1, 0.5354097043022124, 4
+Multinomial NB, 5, 5, 22, macro f1, 0.23790696384206056, 4
+Complement NB, 5, 5, 22, precision, 0.7489894500071663, 0
+Complement NB, 5, 5, 22, accuracy, 0.7589238123440077, 0
+Complement NB, 5, 5, 22, recall, 0.7589238123440077, 0
+Complement NB, 5, 5, 22, micro f1, 0.7589238123440076, 0
+Complement NB, 5, 5, 22, macro f1, 0.6405678198171489, 0
+KNN, 5, 5, 22, precision, 0.6165388057325238, 0
+KNN, 5, 5, 22, accuracy, 0.6153411734844959, 0
+KNN, 5, 5, 22, recall, 0.6153411734844959, 0
+KNN, 5, 5, 22, micro f1, 0.6153411734844959, 0
+KNN, 5, 5, 22, macro f1, 0.5275064835130803, 0
+Random Forest, 5, 5, 22, precision, 0.7216856882848063, 1
+Random Forest, 5, 5, 22, accuracy, 0.6712043656669062, 1
+Random Forest, 5, 5, 22, recall, 0.6712043656669062, 1
+Random Forest, 5, 5, 22, micro f1, 0.6712043656669062, 1
+Random Forest, 5, 5, 22, macro f1, 0.5140360541702222, 1
+SVM (kernel='linear'), 5, 5, 5, precision, 0.7797885935514672, 1
+SVM (kernel='linear'), 5, 5, 5, accuracy, 0.7556876348407293, 1
+SVM (kernel='linear'), 5, 5, 5, recall, 0.7556876348407293, 1
+SVM (kernel='linear'), 5, 5, 5, micro f1, 0.7556876348407292, 1
+SVM (kernel='linear'), 5, 5, 5, macro f1, 0.6558389108298915, 1
+SVM (kernel='sigmoid'), 5, 5, 5, precision, 0.7851425707705677, 9
+SVM (kernel='sigmoid'), 5, 5, 5, accuracy, 0.3125407166123778, 9
+SVM (kernel='sigmoid'), 5, 5, 5, recall, 0.3125407166123778, 9
+SVM (kernel='sigmoid'), 5, 5, 5, micro f1, 0.3125407166123778, 9
+SVM (kernel='sigmoid'), 5, 5, 5, macro f1, 0.04762363437887765, 9
+SVM (kernel='poly'), 5, 5, 5, precision, 0.7851425707705677, 9
+SVM (kernel='poly'), 5, 5, 5, accuracy, 0.3125407166123778, 9
+SVM (kernel='poly'), 5, 5, 5, recall, 0.3125407166123778, 9
+SVM (kernel='poly'), 5, 5, 5, micro f1, 0.3125407166123778, 9
+SVM (kernel='poly'), 5, 5, 5, macro f1, 0.04762363437887765, 9
+SVM (kernel='rbf'), 5, 5, 5, precision, 0.7851425707705677, 9
+SVM (kernel='rbf'), 5, 5, 5, accuracy, 0.3125407166123778, 9
+SVM (kernel='rbf'), 5, 5, 5, recall, 0.3125407166123778, 9
+SVM (kernel='rbf'), 5, 5, 5, micro f1, 0.3125407166123778, 9
+SVM (kernel='rbf'), 5, 5, 5, macro f1, 0.04762363437887765, 9
+SVM (kernel='linear'), 5, 2, 28, precision, 0.7800357469885828, 0
+SVM (kernel='linear'), 5, 2, 28, accuracy, 0.7446444435043784, 0
+SVM (kernel='linear'), 5, 2, 28, recall, 0.7446444435043784, 0
+SVM (kernel='linear'), 5, 2, 28, micro f1, 0.7446444435043784, 0
+SVM (kernel='linear'), 5, 2, 28, macro f1, 0.6375464448305531, 0
+SVM (kernel='sigmoid'), 5, 2, 28, precision, 0.7721258910370189, 0
+SVM (kernel='sigmoid'), 5, 2, 28, accuracy, 0.7381445915647868, 0
+SVM (kernel='sigmoid'), 5, 2, 28, recall, 0.7381445915647868, 0
+SVM (kernel='sigmoid'), 5, 2, 28, micro f1, 0.7381445915647868, 0
+SVM (kernel='sigmoid'), 5, 2, 28, macro f1, 0.6203781603698617, 0
+SVM (kernel='poly'), 5, 2, 28, precision, 0.7521678005298977, 8
+SVM (kernel='poly'), 5, 2, 28, accuracy, 0.3268348914928719, 8
+SVM (kernel='poly'), 5, 2, 28, recall, 0.3268348914928719, 8
+SVM (kernel='poly'), 5, 2, 28, micro f1, 0.3268348914928719, 8
+SVM (kernel='poly'), 5, 2, 28, macro f1, 0.059964186091903494, 8
+SVM (kernel='rbf'), 5, 2, 28, precision, 0.770990561204781, 3
+SVM (kernel='rbf'), 5, 2, 28, accuracy, 0.5750306696560769, 3
+SVM (kernel='rbf'), 5, 2, 28, recall, 0.5750306696560769, 3
+SVM (kernel='rbf'), 5, 2, 28, micro f1, 0.5750306696560769, 3
+SVM (kernel='rbf'), 5, 2, 28, macro f1, 0.3283811926197272, 3
+Gaussian NB, 5, 2, 28, precision, 0.5929217688569283, 0
+Gaussian NB, 5, 2, 28, accuracy, 0.5652734887262575, 0
+Gaussian NB, 5, 2, 28, recall, 0.5652734887262575, 0
+Gaussian NB, 5, 2, 28, micro f1, 0.5652734887262575, 0
+Gaussian NB, 5, 2, 28, macro f1, 0.4073344392063323, 0
+Multinomial NB, 5, 2, 28, precision, 0.7690547585800251, 7
+Multinomial NB, 5, 2, 28, accuracy, 0.4866724480730996, 7
+Multinomial NB, 5, 2, 28, recall, 0.4866724480730996, 7
+Multinomial NB, 5, 2, 28, micro f1, 0.4866724480730996, 7
+Multinomial NB, 5, 2, 28, macro f1, 0.14848789870557513, 7
+Complement NB, 5, 2, 28, precision, 0.7364275998491709, 0
+Complement NB, 5, 2, 28, accuracy, 0.743343627056982, 0
+Complement NB, 5, 2, 28, recall, 0.743343627056982, 0
+Complement NB, 5, 2, 28, micro f1, 0.743343627056982, 0
+Complement NB, 5, 2, 28, macro f1, 0.6270642379694624, 0
+KNN, 5, 2, 28, precision, 0.6439754314091314, 0
+KNN, 5, 2, 28, accuracy, 0.6354625830195862, 0
+KNN, 5, 2, 28, recall, 0.6354625830195862, 0
+KNN, 5, 2, 28, micro f1, 0.6354625830195862, 0
+KNN, 5, 2, 28, macro f1, 0.5460823438662569, 0
+Random Forest, 5, 2, 28, precision, 0.7246601462820738, 2
+Random Forest, 5, 2, 28, accuracy, 0.6608105249799061, 2
+Random Forest, 5, 2, 28, recall, 0.6608105249799061, 2
+Random Forest, 5, 2, 28, micro f1, 0.6608105249799061, 2
+Random Forest, 5, 2, 28, macro f1, 0.5098501675984725, 2
+SVM (kernel='linear'), 5, 5, 29, precision, 0.7604557751955777, 0
+SVM (kernel='linear'), 5, 5, 29, accuracy, 0.7556834045433394, 0
+SVM (kernel='linear'), 5, 5, 29, recall, 0.7556834045433394, 0
+SVM (kernel='linear'), 5, 5, 29, micro f1, 0.7556834045433394, 0
+SVM (kernel='linear'), 5, 5, 29, macro f1, 0.6987715556848446, 0
+SVM (kernel='sigmoid'), 5, 5, 29, precision, 0.780000491845964, 0
+SVM (kernel='sigmoid'), 5, 5, 29, accuracy, 0.7628389525783662, 0
+SVM (kernel='sigmoid'), 5, 5, 29, recall, 0.7628389525783662, 0
+SVM (kernel='sigmoid'), 5, 5, 29, micro f1, 0.7628389525783661, 0
+SVM (kernel='sigmoid'), 5, 5, 29, macro f1, 0.7240197332925244, 0
+SVM (kernel='poly'), 5, 5, 29, precision, 0.7801336625000171, 9
+SVM (kernel='poly'), 5, 5, 29, accuracy, 0.3365666906383519, 9
+SVM (kernel='poly'), 5, 5, 29, recall, 0.3365666906383519, 9
+SVM (kernel='poly'), 5, 5, 29, micro f1, 0.3365666906383519, 9
+SVM (kernel='poly'), 5, 5, 29, macro f1, 0.07816520427270277, 9
+SVM (kernel='rbf'), 5, 5, 29, precision, 0.737041885505999, 1
+SVM (kernel='rbf'), 5, 5, 29, accuracy, 0.6900503405389398, 1
+SVM (kernel='rbf'), 5, 5, 29, recall, 0.6900503405389398, 1
+SVM (kernel='rbf'), 5, 5, 29, micro f1, 0.6900503405389398, 1
+SVM (kernel='rbf'), 5, 5, 29, macro f1, 0.561047520374292, 1
+SVM (kernel='poly', degree=0), 5, 5, 34, precision, 0.9403789529446138, 9
+SVM (kernel='poly', degree=0), 5, 5, 34, accuracy, 0.0636786666102627, 9
+SVM (kernel='poly', degree=0), 5, 5, 34, recall, 0.0636786666102627, 9
+SVM (kernel='poly', degree=0), 5, 5, 34, micro f1, 0.0636786666102627, 9
+SVM (kernel='poly', degree=0), 5, 5, 34, macro f1, 0.011972850003729395, 9
+SVM (kernel='poly', degree=1), 5, 5, 34, precision, 0.7674012599342369, 0
+SVM (kernel='poly', degree=1), 5, 5, 34, accuracy, 0.7589343880874825, 0
+SVM (kernel='poly', degree=1), 5, 5, 34, recall, 0.7589343880874825, 0
+SVM (kernel='poly', degree=1), 5, 5, 34, micro f1, 0.7589343880874825, 0
+SVM (kernel='poly', degree=1), 5, 5, 34, macro f1, 0.6991124717818694, 0
+SVM (kernel='poly', degree=2), 5, 5, 34, precision, 0.7146084990283332, 2
+SVM (kernel='poly', degree=2), 5, 5, 34, accuracy, 0.5360675155463429, 2
+SVM (kernel='poly', degree=2), 5, 5, 34, recall, 0.5360675155463429, 2
+SVM (kernel='poly', degree=2), 5, 5, 34, micro f1, 0.5360675155463429, 2
+SVM (kernel='poly', degree=2), 5, 5, 34, macro f1, 0.26914763426785704, 2
+SVM (kernel='poly', degree=3), 5, 5, 34, precision, 0.7466543589372592, 9
+SVM (kernel='poly', degree=3), 5, 5, 34, accuracy, 0.3248783789500402, 9
+SVM (kernel='poly', degree=3), 5, 5, 34, recall, 0.3248783789500402, 9
+SVM (kernel='poly', degree=3), 5, 5, 34, micro f1, 0.3248783789500402, 9
+SVM (kernel='poly', degree=3), 5, 5, 34, macro f1, 0.07802545308045432, 9
+SVM (kernel='poly', degree=4), 5, 5, 34, precision, 0.8168764213355871, 9
+SVM (kernel='poly', degree=4), 5, 5, 34, accuracy, 0.243709547781209, 9
+SVM (kernel='poly', degree=4), 5, 5, 34, recall, 0.243709547781209, 9
+SVM (kernel='poly', degree=4), 5, 5, 34, micro f1, 0.243709547781209, 9
+SVM (kernel='poly', degree=4), 5, 5, 34, macro f1, 0.039071713109532905, 9
+SVM (kernel='poly', degree=5), 5, 5, 34, precision, 0.8168764213355871, 9
+SVM (kernel='poly', degree=5), 5, 5, 34, accuracy, 0.243709547781209, 9
+SVM (kernel='poly', degree=5), 5, 5, 34, recall, 0.243709547781209, 9
+SVM (kernel='poly', degree=5), 5, 5, 34, micro f1, 0.243709547781209, 9
+SVM (kernel='poly', degree=5), 5, 5, 34, macro f1, 0.039071713109532905, 9
+SVM (kernel='poly', degree=6), 5, 5, 34, precision, 0.8168764213355871, 9
+SVM (kernel='poly', degree=6), 5, 5, 34, accuracy, 0.243709547781209, 9
+SVM (kernel='poly', degree=6), 5, 5, 34, recall, 0.243709547781209, 9
+SVM (kernel='poly', degree=6), 5, 5, 34, micro f1, 0.243709547781209, 9
+SVM (kernel='poly', degree=6), 5, 5, 34, macro f1, 0.039071713109532905, 9
+SVM (kernel='poly', degree=7), 5, 5, 34, precision, 0.8168764213355871, 9
+SVM (kernel='poly', degree=7), 5, 5, 34, accuracy, 0.243709547781209, 9
+SVM (kernel='poly', degree=7), 5, 5, 34, recall, 0.243709547781209, 9
+SVM (kernel='poly', degree=7), 5, 5, 34, micro f1, 0.243709547781209, 9
+SVM (kernel='poly', degree=7), 5, 5, 34, macro f1, 0.039071713109532905, 9
+SVM (kernel='poly', degree=8), 5, 5, 34, precision, 0.8168764213355871, 9
+SVM (kernel='poly', degree=8), 5, 5, 34, accuracy, 0.243709547781209, 9
+SVM (kernel='poly', degree=8), 5, 5, 34, recall, 0.243709547781209, 9
+SVM (kernel='poly', degree=8), 5, 5, 34, micro f1, 0.243709547781209, 9
+SVM (kernel='poly', degree=8), 5, 5, 34, macro f1, 0.039071713109532905, 9
+SVM (kernel='poly', degree=9), 5, 5, 34, precision, 0.8168764213355871, 9
+SVM (kernel='poly', degree=9), 5, 5, 34, accuracy, 0.243709547781209, 9
+SVM (kernel='poly', degree=9), 5, 5, 34, recall, 0.243709547781209, 9
+SVM (kernel='poly', degree=9), 5, 5, 34, micro f1, 0.243709547781209, 9
+SVM (kernel='poly', degree=9), 5, 5, 34, macro f1, 0.039071713109532905, 9

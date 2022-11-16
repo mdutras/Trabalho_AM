@@ -13,6 +13,7 @@ from sklearn.svm import SVC
 from sklearn.naive_bayes import MultinomialNB, GaussianNB, ComplementNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
 
 def customTokenizer(doc):
     stopWords = list(set(nltk.corpus.stopwords.words('english')) | set(gensim.parsing.preprocessing.STOPWORDS))
@@ -38,7 +39,7 @@ def featureVector(docs, minDf=10):
     return TFIDF.todense().tolist()
 
 def classifier(features, classes, classif, extra={}):
-    print("Classificador")
+    print(f"Classificador : {extra['classifierName']}")
     #docsTrain, docsTest, classesTrain, classesTest = train_test_split(features, classes, train_size=0.7, test_size=0.3,random_state=109)
     kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=extra["randNum"])
     measure = {
@@ -74,21 +75,24 @@ def main():
     # "And when I\'m introduced to one,",
     # "I wish I thought \"What Jolly Fun!\""]
     # classes = [0,1,2,1,0]
-    minDf = 10
+    minDf = 5
     data = pd.read_csv('data.csv')
     classes = np.array(data['genre'])
     docs = np.array(data['synopsis'])
     features = np.array(featureVector(docs, minDf))
     rs = randint(0, 42)
-    classifier(features, classes, SVC(kernel='linear'), {"randNum":rs, "classifierName":"SVM (kernel='linear')", "min_df":minDf})
-    classifier(features, classes, SVC(kernel='sigmoid'), {"randNum":rs, "classifierName":"SVM (kernel='sigmoid')", "min_df":minDf})
-    classifier(features, classes, SVC(kernel='poly'), {"randNum":rs, "classifierName":"SVM (kernel='poly')", "min_df":minDf})
-    classifier(features, classes, SVC(kernel='rbf'), {"randNum":rs, "classifierName":"SVM (kernel='rbf')", "min_df":minDf})
-    classifier(features, classes, GaussianNB(), {"randNum":rs, "classifierName":"Gaussian NB", "min_df":minDf})
-    classifier(features, classes, MultinomialNB(), {"randNum":rs, "classifierName":"Multinomial NB", "min_df":minDf})
-    classifier(features, classes, ComplementNB(), {"randNum":rs, "classifierName":"Complement NB", "min_df":minDf})
-    classifier(features, classes, KNeighborsClassifier(), {"randNum":rs, "classifierName":"KNN", "min_df":minDf})
-    classifier(features, classes, RandomForestClassifier(), {"randNum":rs, "classifierName":"Random Forest", "min_df":minDf})
+    #classifier(features, classes, SVC(kernel='linear', class_weight='balanced'), {"randNum":rs, "classifierName":"SVM (kernel='linear')", "min_df":minDf})
+    #classifier(features, classes, SVC(kernel='sigmoid', class_weight='balanced'), {"randNum":rs, "classifierName":"SVM (kernel='sigmoid')", "min_df":minDf})
+#   classifier(features, classes, SVC(kernel='poly', class_weight='balanced', degree=1), {"randNum":rs, "classifierName":"SVM (kernel='poly', degree=1)", "min_df":minDf})
+    #classifier(features, classes, SVC(kernel='rbf', class_weight='balanced'), {"randNum":rs, "classifierName":"SVM (kernel='rbf')", "min_df":minDf})
+#   classifier(features, classes, GaussianNB(), {"randNum":rs, "classifierName":"Gaussian NB", "min_df":minDf})
+#   classifier(features, classes, MultinomialNB(), {"randNum":rs, "classifierName":"Multinomial NB", "min_df":minDf})
+#   classifier(features, classes, ComplementNB(), {"randNum":rs, "classifierName":"Complement NB", "min_df":minDf})
+#   classifier(features, classes, KNeighborsClassifier(), {"randNum":rs, "classifierName":"KNN", "min_df":minDf})
+#   classifier(features, classes, RandomForestClassifier(), {"randNum":rs, "classifierName":"Random Forest", "min_df":minDf})
+    classifier(features, classes, DecisionTreeClassifier(), {"randNum":rs, "classifierName":"Decision Tree (gini)", "min_df":minDf})
+    classifier(features, classes, DecisionTreeClassifier(criterion='entropy'), {"randNum":rs, "classifierName":"Decision Tree (entropy)", "min_df":minDf})
+    classifier(features, classes, DecisionTreeClassifier(criterion='log_loss'), {"randNum":rs, "classifierName":"Decision Tree (log_loss)", "min_df":minDf})
 
 
 if __name__ == "__main__":
