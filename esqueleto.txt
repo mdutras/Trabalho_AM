@@ -1,11 +1,15 @@
 # Introdução
 - Contextualização sobre as seguintes áreas:
   - Classificação de documentos
-    Se possível abordar o contexto da área da biblioteconomia, para destacar a importância da classificação de documentos
     Citar quarta revolução industrial e a ubiquidade de informações
+    Abordar o contexto da área da biblioteconomia, para destacar a importância da classificação de documentos
   - Aprendizado de máquina
   - Processamento de linguagem natural
-  Começa com uma contextualização sobre a área da biblioteconomia que trata a classificação de documentos e as dificuldades da classificação de documento manual. Após isso apresenta o aprendizado de máquina como um artifício para a construção de uma ferramenta de classificação mais eficiente, salientando a área de processamento de linguagem natural.
+## Passo-a-passo
+1. Introdução no assunto utilizando como pretexto a quarta revolução insdustrial
+2. Introduzir o conceito de documentos e a importância e dificuldade de classificá-los
+3. Mostrar a técnicas de aprendizado de máquina como maneira de facilitar a classificação de documentos
+  Salientar área de processamento de linguagem natural
 
 # Problema
 - Reduzir o escopo do problema de classificação de documentos para livros.

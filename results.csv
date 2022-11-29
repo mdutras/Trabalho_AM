@@ -224,3 +224,18 @@ SVM (kernel='poly', degree=9), 5, 5, 34, accuracy, 0.243709547781209, 9
 SVM (kernel='poly', degree=9), 5, 5, 34, recall, 0.243709547781209, 9
 SVM (kernel='poly', degree=9), 5, 5, 34, micro f1, 0.243709547781209, 9
 SVM (kernel='poly', degree=9), 5, 5, 34, macro f1, 0.039071713109532905, 9
+Decision Tree (gini), 5, 5, 28, precision, 0.5391045010649694, 0
+Decision Tree (gini), 5, 5, 28, accuracy, 0.5405939337535429, 0
+Decision Tree (gini), 5, 5, 28, recall, 0.5405939337535429, 0
+Decision Tree (gini), 5, 5, 28, micro f1, 0.5405939337535429, 0
+Decision Tree (gini), 5, 5, 28, macro f1, 0.4566000268507474, 0
+Decision Tree (entropy), 5, 5, 28, precision, 0.5062041995593443, 0
+Decision Tree (entropy), 5, 5, 28, accuracy, 0.5087546004484116, 0
+Decision Tree (entropy), 5, 5, 28, recall, 0.5087546004484116, 0
+Decision Tree (entropy), 5, 5, 28, micro f1, 0.5087546004484116, 0
+Decision Tree (entropy), 5, 5, 28, macro f1, 0.4390908555835389, 0
+Decision Tree (log_loss), 5, 5, 28, precision, 0.5001707671992038, 0
+Decision Tree (log_loss), 5, 5, 28, accuracy, 0.49966157620880747, 0
+Decision Tree (log_loss), 5, 5, 28, recall, 0.49966157620880747, 0
+Decision Tree (log_loss), 5, 5, 28, micro f1, 0.49966157620880747, 0
+Decision Tree (log_loss), 5, 5, 28, macro f1, 0.4348625675599617, 0
