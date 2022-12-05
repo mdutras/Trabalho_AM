@@ -1,8 +1,0 @@
-- [ x ] Checar as métricas, principalmente o atributo 'average'
-- [ x ] Entender cada tipo de métrica diferente (micro, macro, weighted, samples)
-- [  ] Implementar mais de um classificador
-- [  ] Achar o valor ideal para K
-- [  ] Achar o valor ideal para min_df
-- [ x ] Criar um arquivo excel para armazenar os resultados da análise
-- [  ] Pensar como representar os dados
-- [ x ] Decidir se vou usar o k-fold ou o stratified k-fold
