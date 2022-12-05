@@ -41,7 +41,7 @@ def featureVector(docs, minDf=10):
 def classifier(features, classes, classif, extra={}):
     print(f"Classificador : {extra['classifierName']}")
     #docsTrain, docsTest, classesTrain, classesTest = train_test_split(features, classes, train_size=0.7, test_size=0.3,random_state=109)
-    kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=extra["randNum"])
+    kf = StratifiedKFold(n_splits=8, shuffle=True, random_state=extra["randNum"])
     measure = {
         "precision": 0,
         "accuracy": 0,
@@ -68,32 +68,22 @@ def classifier(features, classes, classif, extra={}):
 
 
 def main():
-    # docs = ["I wish I loved the Human Race;",
-    # "I wish I loved its silly face;",
-    # "I wish I liked the way it walks;",
-    # "I wish I liked the way it talks;",
-    # "And when I\'m introduced to one,",
-    # "I wish I thought \"What Jolly Fun!\""]
-    # classes = [0,1,2,1,0]
     minDf = 5
     data = pd.read_csv('data.csv')
     classes = np.array(data['genre'])
     docs = np.array(data['synopsis'])
     features = np.array(featureVector(docs, minDf))
-    rs = randint(0, 42)
-    classifier(features, classes, SVC(kernel='linear', class_weight='balanced'), {"randNum":rs, "classifierName":"SVM (kernel='linear')", "min_df":minDf})
-    classifier(features, classes, SVC(kernel='sigmoid', class_weight='balanced'), {"randNum":rs, "classifierName":"SVM (kernel='sigmoid')", "min_df":minDf})
-    classifier(features, classes, SVC(kernel='poly', class_weight='balanced', degree=1), {"randNum":rs, "classifierName":"SVM (kernel='poly', degree=1)", "min_df":minDf})
-    classifier(features, classes, SVC(kernel='rbf', class_weight='balanced'), {"randNum":rs, "classifierName":"SVM (kernel='rbf')", "min_df":minDf})
-    classifier(features, classes, GaussianNB(), {"randNum":rs, "classifierName":"Gaussian NB", "min_df":minDf})
-    classifier(features, classes, MultinomialNB(), {"randNum":rs, "classifierName":"Multinomial NB", "min_df":minDf})
-    classifier(features, classes, ComplementNB(), {"randNum":rs, "classifierName":"Complement NB", "min_df":minDf})
-    classifier(features, classes, KNeighborsClassifier(), {"randNum":rs, "classifierName":"KNN", "min_df":minDf})
-    classifier(features, classes, RandomForestClassifier(), {"randNum":rs, "classifierName":"Random Forest", "min_df":minDf})
-    classifier(features, classes, DecisionTreeClassifier(), {"randNum":rs, "classifierName":"Decision Tree (gini)", "min_df":minDf})
-    classifier(features, classes, DecisionTreeClassifier(criterion='entropy'), {"randNum":rs, "classifierName":"Decision Tree (entropy)", "min_df":minDf})
-    classifier(features, classes, DecisionTreeClassifier(criterion='log_loss'), {"randNum":rs, "classifierName":"Decision Tree (log_loss)", "min_df":minDf})
-
+    for rs in range(20):
+        print(f"iteraçao {rs}")
+        classifier(features, classes, SVC(kernel='linear', class_weight='balanced'), {"randNum":rs, "classifierName":"SVM (kernel='linear')", "min_df":minDf})
+        classifier(features, classes, SVC(kernel='sigmoid', class_weight='balanced'), {"randNum":rs, "classifierName":"SVM (kernel='sigmoid')", "min_df":minDf})
+        classifier(features, classes, SVC(kernel='poly', class_weight='balanced', degree=1), {"randNum":rs, "classifierName":"SVM (kernel='poly', degree=1)", "min_df":minDf})
+        classifier(features, classes, SVC(kernel='rbf', class_weight='balanced'), {"randNum":rs, "classifierName":"SVM (kernel='rbf')", "min_df":minDf})
+        classifier(features, classes, GaussianNB(), {"randNum":rs, "classifierName":"Gaussian NB", "min_df":minDf})
+        classifier(features, classes, MultinomialNB(), {"randNum":rs, "classifierName":"Multinomial NB", "min_df":minDf})
+        classifier(features, classes, ComplementNB(), {"randNum":rs, "classifierName":"Complement NB", "min_df":minDf})
+        classifier(features, classes, KNeighborsClassifier(), {"randNum":rs, "classifierName":"KNN", "min_df":minDf})
+        classifier(features, classes, RandomForestClassifier(), {"randNum":rs, "classifierName":"Random Forest", "min_df":minDf})
 
 if __name__ == "__main__":
     main()
